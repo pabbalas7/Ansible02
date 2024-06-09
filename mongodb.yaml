@@ -3,7 +3,7 @@
   become: yes
   tasks:
   - name: copy mongodb repo
-    ansible.bulitin.copy:
+    ansible.builtin.copy:
      src: mongodb.repo
      dest: /etc/yum.repos.d/mongodb.repo
   - name: Install MongoDB
