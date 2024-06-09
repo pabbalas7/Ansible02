@@ -10,3 +10,17 @@
     ansible.builtin.package:
      name: mongodb-org
      state: present
+  - name: Start & Enable MongoDB Service
+    ansible.builtin.service:
+     name: mongodb
+     state: started
+     enabled: yes
+  - name: Replace ip Address
+    ansible.builtin.replace:
+     path: /etc/mongod.conf
+     regexp: '127.0.0.0'
+     replace: '0.0.0.0'
+  - name: Restatrt mongodb
+    ansible.builtin.service:
+     name: mongodb
+     state: restarted
